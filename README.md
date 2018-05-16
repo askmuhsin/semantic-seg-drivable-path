@@ -23,21 +23,32 @@ python main.py
 The network implemented in this project is based on this [paper](https://arxiv.org/pdf/1605.06211.pdf).    
 ![fcn structure](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/fcn_schema.png)
 
+#### Training Details
+##### System :    AWS EC2 || Instance type : g3.4xlarge     
+Ubuntu 16.04    
+Python 3.6+    
+Tensorflow 1.2+     
+GPU --> Nvidia Tesla M60 (8GB)    
+Training time : 40 mins (with following hyperparameters)     
+
+---
+##### Model params :    
+Learning rate : 0.001    
+Dropout (training keep prob) : 0.5    
+Epochs : 50    
+Batch size : 12    
+Kernel Regularizer : l2_regularizer(1e-3)     
+
 ### Result
 Some of the images obtained after training:    
 ![sample_1](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000032.png)
 ![sample_2](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000034.png)
 ![sample_3](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000072.png)
-![sample_4](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000085.png)
+![sample_4](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000085.png)    
 False positive sample:    
 ![sample_5](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000078.png)
 
-
-### Submission
-1. Ensure you've passed all the unit tests.
-2. Ensure you pass all points on [the rubric](https://review.udacity.com/#!/rubrics/989/view).
-3. Submit the following in a zip file.
- - `helper.py`
- - `main.py`
- - `project_tests.py`
- - Newest inference images from `runs` folder  (**all images from the most recent run**)
+### Rubric achieved:
+1. All the unit test have passed.
+2. main.py runs without errors
+3. Newest inference images from `runs` folder included  (**all images from the most recent run**)
