@@ -1,7 +1,7 @@
 # Semantic Segmentation
 ### Introduction
 A pixel wise segmentation of drivable path using Fully Convolutional Neural-Network (FCN).
-![task at hand](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/result/task_explain.png)
+![task at hand](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/task_explain.png)
 
 ### Setup
 ##### Frameworks and Packages
@@ -21,9 +21,16 @@ python main.py
 
 ### Discussion
 The network implemented in this project is based on this [paper](https://arxiv.org/pdf/1605.06211.pdf).    
+![fcn structure](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/fcn_schema.png)
 
 ### Result
 Some of the images obtained after training:    
+![sample_1](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000032.png)
+![sample_2](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000034.png)
+![sample_3](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000072.png)
+![sample_4](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000085.png)
+False positive sample:    
+![sample_5](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000078.png)
 
 
 ### Submission
