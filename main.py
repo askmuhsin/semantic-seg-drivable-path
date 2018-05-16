@@ -1,10 +1,9 @@
 import os.path
-import tensorflow as tf
 import helper
 import warnings
-from distutils.version import LooseVersion
+import tensorflow as tf
 import project_tests as tests
-
+from distutils.version import LooseVersion
 
 # Check TensorFlow Version
 assert LooseVersion(tf.__version__) >= LooseVersion('1.0'), 'Please use TensorFlow version 1.0 or newer.  You are using {}'.format(tf.__version__)
@@ -15,10 +14,6 @@ if not tf.test.gpu_device_name():
     warnings.warn('No GPU found. Please use a GPU to train your neural network.')
 else:
     print('Default GPU Device: {}'.format(tf.test.gpu_device_name()))
-
-# config = tf.ConfigProto(allow_soft_placement=True)
-# config.gpu_options.allocator_type = 'BFC'
-# config.gpu_options.per_process_gpu_memory_fraction = 0.40
 
 
 def load_vgg(sess, vgg_path):
@@ -73,9 +68,9 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
                     kernel_initializer=tf.random_normal_initializer(stddev=0.01),
                     kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
 
-    fusion_l7_l4 = tf.add(upsample_l7, conv_l4)
+    fuse_l7_l4 = tf.add(upsample_l7, conv_l4)
 
-    upsample_l4 = tf.layers.conv2d_transpose(fusion_l7_l4, num_classes, 4, 2,
+    upsample_l4 = tf.layers.conv2d_transpose(fuse_l7_l4, num_classes, 4, 2,
                     padding='same',
                     kernel_initializer=tf.random_normal_initializer(stddev=0.01),
                     kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
@@ -84,9 +79,9 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
                     kernel_initializer=tf.random_normal_initializer(stddev=0.01),
                     kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
 
-    fusion_l4_l3 = tf.add(upsample_l4, conv_l3)
+    fuse_l4_l3 = tf.add(upsample_l4, conv_l3)
 
-    upsample_l3 = tf.layers.conv2d_transpose(fusion_l4_l3, num_classes, 16, 8,
+    upsample_l3 = tf.layers.conv2d_transpose(fuse_l4_l3, num_classes, 16, 8,
                     padding='same',
                     kernel_initializer=tf.random_normal_initializer(stddev=0.01),
                     kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
