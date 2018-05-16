@@ -46,7 +46,14 @@ Some of the images obtained after training:
 ![sample_3](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000072.png)
 ![sample_4](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000085.png)    
 False positive sample:    
-![sample_5](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000078.png)
+![sample_5](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/images/um_000078.png)     
+False negative sample:     
+![sample_6](https://github.com/askmuhsin/semantic-seg-drivable-path/blob/master/runs/1526462155.1956172/um_000073.png)   
+
+#### Future improvements
+[ ] Augment training images for better performance     
+[ ] Use more datapoints (from other similar datasets; cityscape like)    
+[ ] Increase classes (add pedestrians, vehicles, ...)      
 
 ### Rubric achieved:
 1. All the unit test have passed.
