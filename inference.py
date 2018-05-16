@@ -77,7 +77,6 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
 
 
 def infer():
-    saver = tf.train.Saver()
     with tf.Session() as sess:
       new_saver = tf.train.import_meta_graph('./saved_model/tf_model_saved_1.meta')
       new_saver.restore(sess, tf.train.latest_checkpoint('./saved_model'))
